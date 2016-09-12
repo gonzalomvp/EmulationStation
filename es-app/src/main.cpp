@@ -21,10 +21,6 @@
 #include <boost/locale.hpp>
 
 #include <libcec/cec.h>
-// cecloader.h uses std::cout _without_ including iosfwd or iostream
-// Furthermore is uses cout and not std::cout
-using std::cout;
-using std::endl;
 #include <libcec/cecloader.h>
 
 #include "bcm_host.h"
@@ -397,7 +393,7 @@ int main(int argc, char* argv[])
 	const std::string devicename("CECExample");
 	devicename.copy(cec_config.strDeviceName, std::min(devicename.size(),13u) );
 	
-	cec_config.clientVersion       = CEC::CEC_CLIENT_VERSION_CURRENT;
+	cec_config.clientVersion       = CEC::LIBCEC_VERSION_CURRENT;
 	cec_config.bActivateSource     = 1;
 	cec_config.callbacks           = &cec_callbacks;
 	cec_config.deviceTypes.Add(CEC::CEC_DEVICE_TYPE_RECORDING_DEVICE);
